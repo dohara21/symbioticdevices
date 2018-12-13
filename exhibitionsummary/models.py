@@ -23,7 +23,7 @@ class Summary(models.Model):
 
 	registrations = models.IntegerField('Complimentary registrations', blank=True)
 
-	power = models.BooleanField('Power supplied', default=False, null=True)
+	power = models.BooleanField('Power supplied', default=False)
 
 	brochures = models.TextField('Brochures', default="QTY x BROCHURE #", help_text="Include qty", max_length=500, blank=True)
 
@@ -31,9 +31,9 @@ class Summary(models.Model):
 
 	banners = models.TextField('Banners', default="", max_length=200, blank=True)
 
-	delivery = models.BooleanField('Delivered', default=False, null=True)
+	delivery = models.BooleanField('Delivered', default=False)
 
-	hand = models.BooleanField('Hand carried', default=False, null=True)
+	hand = models.BooleanField('Hand carried', default=False)
 
 	address = models.CharField('Delivery address', default="", max_length=300, blank=True)
 
