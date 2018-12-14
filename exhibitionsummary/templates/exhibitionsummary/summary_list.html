@@ -1,0 +1,11 @@
+{% extends 'exhibitionsummary/base.html' %}
+
+{% block content %}
+	{% for summaries in summaries %}
+	    <div>
+	        <h3><a href="{% url 'exhibitionsummary:conference_detail' pk=summaries.id %}">{{ summaries.conference}}</a></h3>
+	        <p>{{ summaries.start }} - {{ summaries.end }}</p>
+	        <p>{{ summaries.venue }}</p>
+	    </div>
+	{% endfor %}
+{% endblock %}

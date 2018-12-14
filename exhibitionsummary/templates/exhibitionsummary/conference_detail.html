@@ -1,0 +1,36 @@
+{% extends 'exhibitionsummary/base.html' %}
+
+{% block content %}
+	{% for summaries in summaries %}
+	    <div>
+	        <h3><a href="{% url 'exhibitionsummary:conference_detail' pk=summaries.id %}">{{ summaries.conference}}</a></h3>
+	        <p>{{ summaries.start }} - {{ summaries.end }}</p>
+	        <p>{{ summaries.venue }}</p>
+	    </div>
+	{% endfor %}
+{% endblock %}
+
+{% block declan %}
+<div>
+        <b>Conference: </b><p>{{ conference.conference }}</p>
+        <b>Venue: </b><p>{{ conference.venue }}</p>
+        <b>Start date: </b><p>{{ conference.start }}</p>
+        <b>End date: </b><p>{{ conference.end }}</p>
+        <b>Accommodation address: </b><p>{{ conference.accommodation }}</p>
+        <b>Booth setup: </b><p>{{ conference.setup }}</p>
+        <b>Booth dismantle: </b><p>{{ conference.dismantle }}</p>
+        <b>Booth #: </b><p>{{ conference.booth }}</p>
+        <b>Furniture provided: </b><p>{{ conference.furniture|linebreaksbr }}</p>
+        <b>Complementary registrations: </b><p>{{ conference.registrations }}</p>
+        <b>Power provided: </b><p>{{ conference.power }}</p>
+        <b>Brochures: </b><p>{{ conference.brochures|linebreaksbr }}</p>
+        <b>Equipment: </b><p>{{ conference.equipment|linebreaksbr }}</p>
+        <b>Banners: </b><p>{{ conference.banners|linebreaksbr }}</p>
+        <b>Delivery required: </b><p>{{ conference.delivery }}</p>
+        <b>Hand delivered: </b><p>{{ conference.hand }}</p>
+        <b>Delivery address: </b><p>{{ conference.address }}</p>
+        <b>Ship date: </b><p>{{ conference.date }}</p>
+        <b>Extra details: </b><p>{{ conference.details|linebreaksbr }}</p>
+
+</div>
+{% endblock %}

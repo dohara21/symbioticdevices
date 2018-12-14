@@ -6,10 +6,14 @@ from django.db import models
 
 
 class Summary(models.Model):
-	"""Model representing brand of equipment"""
+
 	conference = models.CharField(max_length=200)
 
 	venue = models.CharField(max_length=300, blank=True)
+
+	start = models.DateField('Start date', null=True)
+
+	end = models.DateField('End date', null=True)
 
 	accommodation = models.CharField('Accomodation address', max_length=300, blank=True)
 
@@ -17,11 +21,11 @@ class Summary(models.Model):
 
 	dismantle = models.DateTimeField('Dismantle', blank=True, null=True)
 
-	booth = models.IntegerField('Booth #', blank=True)
+	booth = models.IntegerField('Booth #', blank=True, default=1)
 
 	furniture = models.TextField('Furniture provided', max_length=300, blank=True)
 
-	registrations = models.IntegerField('Complimentary registrations', blank=True)
+	registrations = models.IntegerField('Complimentary registrations', blank=True, default=1)
 
 	power = models.BooleanField('Power supplied', default=False)
 
@@ -47,13 +51,16 @@ class Summary(models.Model):
 
 
 
-	def __str__(self):
-
-		return self.name
-
 	def get_absolute_url(self):
-
 		return reverse('exhib-summary', args=[str(self.id)])
+
+	def publish(self):
+		self.published_date = timezone.now()
+		self.save()
+
+	def __str__(self):
+		return self.conference
+
 
 	@property
 	def Summary(self):

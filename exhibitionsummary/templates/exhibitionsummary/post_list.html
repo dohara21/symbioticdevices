@@ -1,6 +1,21 @@
 <html>
 <body>
-    <h1>Hi there!</h1>
-    <p>It works!</p>
+<div>
+    <h1><a href="/">Symbiotic Devices</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.date}}</p>
+        <h2><a href="">{{ post.conference }}</a></h2>
+        <p>{{ post.summary|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
+
+
+{{ post.conference }}
+
+<p> fck u </p>
 </body>
 </html>
