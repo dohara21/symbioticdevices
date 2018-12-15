@@ -3,24 +3,35 @@
 <title>Admin // Symbiotic Devices</title>
 <head>
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
 </head>
 <body>
 <nav>
-<a id="logo" href="{% url 'summary_list' %}">Symbiotic Devices // Admin</a>
-<a href="#">EXHIBITION SUMMARIES</a>
+<a id="logo" href="/">Symbiotic Devices // Admin</a>
+<!-- <a href="#">EXHIBITION SUMMARIES</a>
 <a href="#">RDA</a>
-<a href="#">BROCHURES</a>
+<a href="#">BROCHURES</a> !-->
 <a href="{% url 'admin:index' %}" id="admin">ADMIN</a>
 </nav>
 <div class="body">
-	<div class="side1">
-	{% block content %}
+	{% block details %}
+	{% endblock %}
+	<div class="strip">
+		Exhibiton Summaries
+	</div>
+	<div class="strip1">
+	{% block strip %}
 	{% endblock %}
 	</div>
-<div class="content">
-	{% block declan %}
-	{% endblock %}
-</div>
-</div>
+	<div class="side1">
+	{% for sidebar in sidebar %}
+	    <div>
+	        <h3><a href="{% url 'exhibitionsummary:conference_detail' pk=sidebar.id %}">{{ sidebar.conference}}</a></h3>
+	        <p>{{ sidebar.start }} - {{ sidebar.end }}</p>
+	        <p>{{ sidebar.venue }}</p>
+	    </div>
+	{% endfor %}
+	</div>
 </body>
 </html>

@@ -1,17 +1,17 @@
 {% extends 'exhibitionsummary/base.html' %}
 
-{% block content %}
-	{% for summaries in summaries %}
-	    <div>
-	        <h3><a href="{% url 'exhibitionsummary:conference_detail' pk=summaries.id %}">{{ summaries.conference}}</a></h3>
-	        <p>{{ summaries.start }} - {{ summaries.end }}</p>
-	        <p>{{ summaries.venue }}</p>
-	    </div>
-	{% endfor %}
-{% endblock %}
-
-{% block declan %}
+{% block strip %} 
 <div>
+{{ conference.conference }}
+</div>
+{% endblock %} 
+
+
+{% block details %} 
+
+
+
+<div class="content">
         <b>Conference: </b><p>{{ conference.conference }}</p>
         <b>Venue: </b><p>{{ conference.venue }}</p>
         <b>Start date: </b><p>{{ conference.start }}</p>
