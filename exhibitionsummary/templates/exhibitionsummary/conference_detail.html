@@ -1,17 +1,7 @@
 {% extends 'exhibitionsummary/base.html' %}
 
-{% block strip %} 
-<div>
-{{ conference.conference }}
-</div>
-{% endblock %} 
-
 
 {% block details %} 
-
-
-
-<div class="content">
         <b>Conference: </b><p>{{ conference.conference }}</p>
         <b>Venue: </b><p>{{ conference.venue }}</p>
         <b>Start date: </b><p>{{ conference.start }}</p>
@@ -31,6 +21,4 @@
         <b>Delivery address: </b><p>{{ conference.address }}</p>
         <b>Ship date: </b><p>{{ conference.date }}</p>
         <b>Extra details: </b><p>{{ conference.details|linebreaksbr }}</p>
-
-</div>
 {% endblock %}

@@ -10,4 +10,3 @@ urlpatterns = [
     path('', views.summary_list, name='summary_list'),
     path('conference/<int:pk>/', views.conference_detail, name='conference_detail')
 ]
-

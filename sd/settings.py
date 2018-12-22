@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import os.path  
+import sys
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +35,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'symbioticdevices.pythonanywhere.com']
 
 INSTALLED_APPS = [
     'exhibitionsummary',
+    'products',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,5 +128,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 
-
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')

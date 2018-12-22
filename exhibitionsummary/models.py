@@ -9,6 +9,10 @@ class Summary(models.Model):
 
 	conference = models.CharField(max_length=200)
 
+	website = models.URLField(max_length=300, blank=True)
+
+	contact = models.EmailField(max_length=300, blank=True)
+
 	venue = models.CharField(max_length=300, blank=True)
 
 	start = models.DateField('Start date', null=True)
@@ -48,6 +52,7 @@ class Summary(models.Model):
 	class Meta:
 		verbose_name = 'Exhibition Summary'
 		verbose_name_plural = 'Exhibition Summaries'
+		ordering = ['-start']
 
 
 

@@ -1,38 +1,135 @@
 {% load static %}
 <html>
-<title>Admin // Symbiotic Devices</title>
+<title>Symbiotic Devices / Admin</title>
 <head>
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav>
-<a id="logo" href="/">Symbiotic Devices // Admin</a>
-<!-- <a href="#">EXHIBITION SUMMARIES</a>
-<a href="#">RDA</a>
-<a href="#">BROCHURES</a> !-->
-<a href="{% url 'admin:index' %}" id="admin">ADMIN</a>
-</nav>
-<div class="body">
-	{% block details %}
-	{% endblock %}
-	<div class="strip">
-		Exhibiton Summaries
+	<div class="dashboard">
+		<nav>
+			<a href="{% url 'exhibitionsummary:summary_list' %}"><img src="{% static 'img/white.png' %}" id='logo'></a>
+			<div class="nav">
+				<p>MAIN</p>
+				<div class="rollout"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+				<a href="{% url 'exhibitionsummary:summary_list' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+				<a href="#"><i class="fas fa-calendar-alt"></i>Events</a>
+				<a href="#" id="drop1"><i class="fas fa-list-ul"></i>Exhibition Summaries</a>
+			    	<div class="drop2">
+			    		<a href="{% url 'exhibitionsummary:conference_detail' pk=sidebar.0.id %}">- {{ sidebar.0.conference }}</a>
+			    		<a href="{% url 'exhibitionsummary:conference_detail' pk=sidebar.1.id %}">- {{ sidebar.1.conference }}</a>
+			    		<a href="#"><b>- View all</b></a>
+			    	</div>
+				<a href="#"><i class="fas fa-image"></i>Slider</a>
+				<a href="#"><i class="fas fa-suitcase"></i>Products</a>
+			</div>
+			<div class="activity">
+				<p>RECENT ACTIVITY</p>
+			</div>
+		</nav>
+		<div class="body">
+			<div class="strip">
+				<div class="tree">
+					<a href="#"><p>URL of this page: {{ request.path }}</p></a>
+				</div>
+				<div class="user">
+					<a href="{% url 'admin:index' %}">Welcome, {% if user.is_authenticated %}
+																    {{ user.username }}
+																{% else %}
+																    Log in.
+																{% endif %}</a>
+					<br>{% now "SHORT_DATETIME_FORMAT" %}
+				</div>
+			</div>
+			<div class="content">
+				<div class="maincontent">
+                    <div class="header">
+                    </div>
+                    ip = {{ ip.ip }} {{ ip }}
+				{% block details %}
+				{% endblock %}
+			</div>
+				<div class="calendar">
+					<div class="header">
+						<a href="#">Calendar</a>
+					</div>
+					<div class="jzdbox1 jzdbasf jzdcal">
+
+						<div class="jzdcalt"> December 2018</div>
+
+						<span>Su</span>
+						<span>Mo</span>
+						<span>Tu</span>
+						<span>We</span>
+						<span>Th</span>
+						<span>Fr</span>
+						<span>Sa</span>
+
+
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span>1</span>
+						<span class="circle" data-title="My 25th birthday!">2</span>
+						<span>3</span>
+						<span>4</span>
+						<span>5</span>
+						<span>6</span>
+						<span>7</span>
+						<span>8</span>
+						<span>9</span>
+						<span>10</span>
+						<span>11</span>
+						<span class="circle" data-title="2 month anniversary!">12</span>
+						<span>13</span>
+						<span>14</span>
+						<span>15</span>
+						<span>16</span>
+						<span>17</span>
+						<span>18</span>
+						<span>19</span>
+						<span>20</span>
+						<span>21</span>
+						<span class="circle" data-title="">22</span>
+						<span>23</span>
+						<span>24</span>
+						<span>25</span>
+						<span>26</span>
+						<span>27</span>
+						<span>28</span>
+						<span>29</span>
+						<span>30</span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						<span class="jzdb"><!--BLANK--></span>
+						</div>
+				</div>
+				<div class="stats">
+					<div class="header">
+						<a href="{% url 'exhibitionsummary:conference_detail' pk=sidebar.0.id %}">						{{ sidebar.0.start|timeuntil }} until {{sidebar.0.conference}} </a>
+					</div>
+					<div id="text">
+					<h3>Conference</h3>{{ sidebar.0.conference }}<br>
+					<h3>Date</h3>{{ sidebar.0.start }}<br>
+					<h3>Venue</h3>{{sidebar.0.venue}}<br>
+					<h3>Website</h3><a href="{{sidebar.0.website}}">{{sidebar.0.website}}</a><br>
+					<h3>Contact</h3>{{sidebar.0.contact}}<br>
+					<h3>Notes</h3>{{sidebar.0.details}}<br>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="strip1">
-	{% block strip %}
-	{% endblock %}
-	</div>
-	<div class="side1">
-	{% for sidebar in sidebar %}
-	    <div>
-	        <h3><a href="{% url 'exhibitionsummary:conference_detail' pk=sidebar.id %}">{{ sidebar.conference}}</a></h3>
-	        <p>{{ sidebar.start }} - {{ sidebar.end }}</p>
-	        <p>{{ sidebar.venue }}</p>
-	    </div>
-	{% endfor %}
-	</div>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/js.js' %}"></script>
 </body>
 </html>
