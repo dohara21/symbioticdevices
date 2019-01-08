@@ -9,10 +9,19 @@ $( document ).ready(function() {
 
 	$(".rollout").click(function(){
 		if ($("nav").is(':hidden'))
-			$("nav").slideDown(200);
+			$("nav").animate({width:'toggle'},350);
 		else
-			$("nav").slideUp(200);
+			$("nav").animate({width:'toggle'},350);
 	});
+
+
+	$(".rollin").click(function(){
+		if ($("nav").is(':hidden'))
+			$("nav").animate({width:'toggle'},350);
+		else
+			$("nav").animate({width:'toggle'},350);
+	});
+
 
 
 });

@@ -1,14 +1,28 @@
-var dropdown = document.getElementsByClassName("navdropdown");
-var i;
+$( document ).ready(function() {
+	$("#drop1").click(function(){
+		if ($(".drop2").is(':hidden'))
+			$(".drop2").slideDown(200);
+		else
+			$(".drop2").slideUp(200);
+	});
 
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
-    } else {
-      dropdownContent.style.display = "block";
-    }
-  });
-}
+
+	$(".rollout").click(function(){
+		if ($("nav").is(':hidden'))
+			$("nav").animate({width:'toggle'},350);
+		else
+			$("nav").animate({width:'toggle'},350);
+	});
+
+
+	$(".rollin").click(function(){
+		if ($("nav").is(':hidden'))
+			$("nav").animate({width:'toggle'},350);
+		else
+			$("nav").animate({width:'toggle'},350);
+	});
+
+
+
+});
+

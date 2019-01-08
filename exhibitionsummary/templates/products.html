@@ -1,0 +1,35 @@
+{% extends 'exhibitionsummary/base.html' %}
+{% load static %}
+{% block product_table %}
+<section>
+<div class="tablehead">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Category</th>
+        <th>Solution</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<div class="tablebody">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+      {% for products in products %}
+      <tr>
+        <td>{{ products.name }}</td>
+        <td>{{ products.company}}</td>
+        <td>{% for category in products.category.all %}
+              {{ category.name }}
+            {% endfor %}</td>
+        <td>{% for solution in products.solution.all %}
+              {{ solution.name }},
+            {% endfor %}</td>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</section>
+{% endblock %}
