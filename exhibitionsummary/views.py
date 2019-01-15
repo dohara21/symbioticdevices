@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.utils import timezone
 from .models import Summary
+from happenings.models import Event
 from products.models import Product
 from django.shortcuts import render, get_object_or_404
 
@@ -20,9 +21,12 @@ def conference_detail(request, pk):
     return render(request, 'exhibitionsummary/conference_detail.html', {'conference': conference}, {'summaries': summaries})
 
 def sidebar(request):
-    sidebar = Summary.objects.order_by('conference')
-    return render(request, 'base.html', {'sidebar': sidebar}, context_instance=RequestContext(request)),
+    sidebar = Summary.objects.all()('start')
+    return render(request, 'base.html', {'sidebar': sidebar}, context_instance=RequestContext(request))
 
 def products(request):
     products = Product.objects.order_by('company')
     return render(request, 'products.html', {'products' : products})
+
+def calendar(request):
+    return render(request, 'exhibitionsummary/calendar.html')

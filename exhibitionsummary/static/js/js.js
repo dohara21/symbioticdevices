@@ -8,21 +8,15 @@ $( document ).ready(function() {
 
 
 	$(".rollout").click(function(){
-		if ($("nav").is(':hidden'))
+		if ($("nav").is(':hidden')){
 			$("nav").animate({width:'toggle'},350);
-		else
+			$(".rollout").css({'margin-left': '230px'});
+			$(".iconrotate").toggleClass('rotate');}
+		else{
 			$("nav").animate({width:'toggle'},350);
+			$(".rollout").css({'margin-left': '-20px'});
+			$(".iconrotate").toggleClass('rotate');}
 	});
 
-
-	$(".rollin").click(function(){
-		if ($("nav").is(':hidden'))
-			$("nav").animate({width:'toggle'},350);
-		else
-			$("nav").animate({width:'toggle'},350);
-	});
-
-
-
+	
 });
-

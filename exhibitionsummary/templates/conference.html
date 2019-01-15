@@ -1,7 +1,8 @@
 {% extends 'exhibitionsummary/base.html' %}
-{% load static %}
 {% block conference %}
+{% load static %}
 <section>
+<div class="table">
 <div class="tablehead">
   <table cellpadding="0" cellspacing="0" border="0">
     <thead>
@@ -28,4 +29,8 @@
   </table>
 </div>
 </section>
+</table>
+{% endblock %}
+{% block conference_tree1 %}
+<a href="{% url 'exhibitionsummary:index' %}">Dashboard</a> > Exhibition Summaries
 {% endblock %}

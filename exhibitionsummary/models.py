@@ -52,7 +52,7 @@ class Summary(models.Model):
 	class Meta:
 		verbose_name = 'Exhibition Summary'
 		verbose_name_plural = 'Exhibition Summaries'
-		ordering = ['-start']
+		ordering = ['start']
 
 
 
@@ -70,4 +70,3 @@ class Summary(models.Model):
 	@property
 	def Summary(self):
 		return '%s - present' % self.setup.strftime('%d/%m/%Y')
-

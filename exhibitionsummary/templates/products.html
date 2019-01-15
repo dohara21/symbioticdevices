@@ -2,6 +2,7 @@
 {% load static %}
 {% block product_table %}
 <section>
+<div class="table">
 <div class="tablehead">
   <table cellpadding="0" cellspacing="0" border="0">
     <thead>
@@ -32,4 +33,8 @@
   </table>
 </div>
 </section>
+</div>
+{% endblock %}
+{% block product_tree %}
+<a href="{% url 'exhibitionsummary:index' %}">Dashboard</a> > Products
 {% endblock %}

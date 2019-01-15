@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import os.path  
+import os.path
 import sys
 
 
@@ -36,6 +36,8 @@ ALLOWED_HOSTS = ['127.0.0.1', 'symbioticdevices.pythonanywhere.com']
 INSTALLED_APPS = [
     'exhibitionsummary',
     'products',
+    'sdcalendar',
+    'happenings',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

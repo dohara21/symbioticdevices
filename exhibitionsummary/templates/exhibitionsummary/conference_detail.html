@@ -1,24 +1,38 @@
 {% extends 'exhibitionsummary/base.html' %}
-
-
-{% block details %} 
-        <b>Conference: </b><p>{{ conference.conference }}</p>
-        <b>Venue: </b><p>{{ conference.venue }}</p>
-        <b>Start date: </b><p>{{ conference.start }}</p>
-        <b>End date: </b><p>{{ conference.end }}</p>
-        <b>Accommodation address: </b><p>{{ conference.accommodation }}</p>
-        <b>Booth setup: </b><p>{{ conference.setup }}</p>
-        <b>Booth dismantle: </b><p>{{ conference.dismantle }}</p>
-        <b>Booth #: </b><p>{{ conference.booth }}</p>
-        <b>Furniture provided: </b><p>{{ conference.furniture|linebreaksbr }}</p>
-        <b>Complementary registrations: </b><p>{{ conference.registrations }}</p>
-        <b>Power provided: </b><p>{{ conference.power }}</p>
-        <b>Brochures: </b><p>{{ conference.brochures|linebreaksbr }}</p>
-        <b>Equipment: </b><p>{{ conference.equipment|linebreaksbr }}</p>
-        <b>Banners: </b><p>{{ conference.banners|linebreaksbr }}</p>
-        <b>Delivery required: </b><p>{{ conference.delivery }}</p>
-        <b>Hand delivered: </b><p>{{ conference.hand }}</p>
-        <b>Delivery address: </b><p>{{ conference.address }}</p>
-        <b>Ship date: </b><p>{{ conference.date }}</p>
-        <b>Extra details: </b><p>{{ conference.details|linebreaksbr }}</p>
+{% block details %}
+<div class="conference_detail">
+        <div class="main_detail">
+          <a href="{{ conference.website }}"<h1>{{ conference.conference }}</h1></a>
+          <h3>{{ conference.venue }}</h3>
+          <p>{{ conference.start }} - {{ conference.end }}</p>
+          <p>{{ conference.contact }}</p>
+        </div>
+        <div class="conference_countdown">
+          <h1>{{ conference.start|timeuntil }}</h1>
+        </div>
+        <div class="conference_booth">
+          <h2>Booth</h2>
+          <h5>Number:</h5> {{ conference.booth }}<br>
+          <h5>Setup:</h5> {{ conference.setup }}<br>
+          <h5>Dismantle:</h5> {{conference.dismantle }}<br>
+          <h5>Furniture:</h5> {{conference.furniture|linebreaksbr }}
+          <h5>Power:</h5> {{ conference.power }}
+        </div>
+        <div class="conference_equipment">
+          <h2>Equipment</h2>
+          <h5>Brochures:</h5> {{ conference.brochures|linebreaksbr }}<br>
+          <h5>Equipment:</h5> {{ conference.equipment|linebreaksbr }}<br>
+          <h5>Banners:</h5> {{ conference.banners|linebreaksbr }}<br>
+        </div>
+        <div class="conference_details">
+          <h2>Details</h2>
+          <h5>Complimentary Registrations:</h5> {{ conference.registrations }}<br>
+          <h5>Notes</h5> {{ conference.details|linebreaksbr }}
+          <h5>Shipping address:</h5> {{conference.address }}<br>
+          <h5>Shipping date:</h5> {{conference.date }}
+        </div>
+</div>
+{% endblock %}
+{% block conference_tree %}
+<a href="{% url 'exhibitionsummary:index' %}">Dashboard</a> > <a href="{% url 'exhibitionsummary:conference' %}">Exhibition Summaries</a> > {{ conference.conference }}
 {% endblock %}
