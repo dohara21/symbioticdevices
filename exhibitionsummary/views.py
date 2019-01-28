@@ -30,3 +30,7 @@ def products(request):
 
 def calendar(request):
     return render(request, 'exhibitionsummary/calendar.html')
+
+def conferenceindex(request):
+    conference = Summary.objects.order_by('start')
+    return render(request, 'index.html', {'conferenceindex': conferenceindex})

@@ -131,10 +131,11 @@ nav p {
 .tree {
 	text-decoration: none;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 15px;
 	color: white;
 	font-family: 'IBM Plex Sans';
 	margin-left: -40px;
+	margin-top: -3px;
 
 }
 
@@ -189,6 +190,7 @@ nav p {
 }
 
 .version {
+	font-family: 'courier', monospace;
 	z-index: 3;
 	padding-bottom: 10px;
 	padding-right: 10px;
@@ -314,9 +316,93 @@ td{
 }
 
 .revenue {
+	grid-column: 1 / span 2;
+	grid-row: 2;
+}
+
+
+.line-chart {
+    animation: fadeIn 600ms cubic-bezier(.57,.25,.65,1) 1 forwards;
+  opacity: 0;
+    max-width: 640px;
+    width: 100%;
+}
+
+.aspect-ratio {
+  height: 0;
+  padding-bottom: 50%; // 495h / 990w
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.line-chart {
+    animation: fadeIn 600ms cubic-bezier(.57,.25,.65,1) 1 forwards;
+  opacity: 0;
+    max-width: 640px;
+    width: 100%;
+}
+
+.aspect-ratio {
+  height: 0;
+  padding-bottom: 50%; // 495h / 990w
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.upcoming {
+	display: grid;
+	grid-template-rows: 50px 1fr;
+	grid-template-columns: auto;
 	grid-row: 3;
 	grid-column: 2;
-	background-color: black;
+	background-color: white;
+	color: #2a2a2a;
+	border-radius: 0px 0px 10px 10px;
+
+}
+
+.header {
+	background-color: #d7e153;
+	grid-row: 1;
+	padding-left: 15px;
+	padding-top: 15px;
+	text-transform: uppercase;
+	font-family: 'Ruda';
+	border-radius: 10px 10px 0px 0px;
+	overflow: hidden;
+}
+
+.upcomingdetail {
+	grid-row: 2;
+	padding-left: 20px;
+}
+
+.upcoming_countdown {
+	text-align: right;
+	padding-right: 20px;
+	padding-top: 10px;
+	animation: pulsate1 2s ease-out;
+	-webkit-animation: pulsate1 2s ease-out;
+	-webkit-animation-iteration-count: infinite;
+}
+
+
+@-webkit-keyframes pulsate1 {
+		0% {
+				color: #a1a1a1;
+		}
+		50% {
+				color: #414141;
+		}
+		100% {
+			color: #a1a1a1;
+		}
 }
 
 /* revenue graph */

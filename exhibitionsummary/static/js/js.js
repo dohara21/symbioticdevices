@@ -18,5 +18,12 @@ $( document ).ready(function() {
 			$(".iconrotate").toggleClass('rotate');}
 	});
 
-	
+	$window.on('resize', function ()
+	{
+		if ($window.width() > 600)
+		{
+			$("nav").animate({width:'toggle'},350);
+		}
+	});
+
 });

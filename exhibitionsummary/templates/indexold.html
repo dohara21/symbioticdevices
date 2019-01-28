@@ -1,0 +1,40 @@
+{% extends 'exhibitionsummary/base.html' %}
+{% load static %}
+{% load happenings_tags %}
+{% block javascript %}
+<script src="{% static 'chart.js/dist/Chart.js' %}"></script>
+<script src="{% static 'chart.js/dist/revenue.js' %}"></script>
+{% endblock %}
+{% block index %}
+<div class="index">
+  {% upcoming_events %}
+
+  <div class="revenue">
+    Internet traffic
+    <div class="line-chart">
+  <div class="aspect-ratio">
+    <canvas id="chart"></canvas>
+  </div>
+  </div>
+</div>
+  <div class="upcoming">
+    <div class="header">
+      Upcoming conference
+    </div>
+    <div class="subheader">
+      {{ sidebar.0.conference }}
+    </div>
+    <div class="upcomingdetail">
+      <a href="{% url 'exhibitionsummary:conference_detail' pk=sidebar.0.id %}"><h3>{{ sidebar.0.conference }}</h3></a>
+    {{ sidebar.0.venue }}<br><br>
+    {{ sidebar.0.start }} - {{ sidebar.0.end }}<br>
+    <div class="upcoming_countdown">
+      <h1>{{ sidebar.0.start|timeuntil }}</h1>
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block index_tree %}
+administrator dashboard
+{% endblock %}
