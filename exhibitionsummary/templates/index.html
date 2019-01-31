@@ -8,8 +8,10 @@
 {% block index %}
 <div class="index">
   <div class="indexheader">
-    <div id="embed-api-auth-container"></div>
+    Site analytics
+    <div style ="font-size: 20px;">Symbiotic Devices Dashboard</div>
   </div>
+    <div class="api-auth" id="embed-api-auth-container"></div>
   <div class="geochart">
     <div class="header">
     Geo traffic
@@ -35,6 +37,7 @@
     <div id="chart-4-container"></div>
   </div>
   <div class="upcoming">
+    <h1>UPCOMING CONFERENCE</h1>
     <div class="upcomingdetail">
       <a href="{% url 'exhibitionsummary:conference_detail' pk=sidebar.0.id %}">{{ sidebar.0.conference }}</a><br><br>
     {{ sidebar.0.venue }}<br><br>

@@ -36,7 +36,6 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'symbioticdevices.pythonanywhere.com'
 INSTALLED_APPS = [
     'exhibitionsummary',
     'products',
-    'sdcalendar',
     'happenings',
     'django.contrib.admin',
     'django.contrib.auth',

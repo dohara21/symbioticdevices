@@ -2,6 +2,7 @@
 <html>
 <title>Symbiotic Devices / Admin</title>
 <head>
+	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 	<link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Ubuntu" rel="stylesheet">
@@ -18,7 +19,7 @@
 			<div class="nav">
 				<p>MAIN</p>
 				<a href="{% url 'exhibitionsummary:index' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-				<a href="{% url 'calendar:list' %}"><i class="fas fa-calendar-alt"></i>Events</a>
+				<!--<a href="{% url 'calendar:list' %}"><i class="fas fa-calendar-alt"></i>Events</a>!-->
 				<a href="#" id="drop1"><i class="fas fa-list-ul"></i>Exhibition Summaries</a>
 			    	<div class="drop2">
 			    		<a href="{% url 'exhibitionsummary:conference_detail' pk=sidebar.0.id %}">{{ sidebar.0.conference }}</a>
@@ -26,7 +27,7 @@
 			    		<a href="{% url 'exhibitionsummary:conference' %}">View all</a>
 			    	</div>
 				<a href="{% url 'exhibitionsummary:products' %}"><i class="fas fa-suitcase"></i>Products</a>
-				<a href="#"><i class="fas fa-file-alt"></i>Publications</a>
+				<a href="{% url 'exhibitionsummary:publications' %}"><i class="fas fa-file-alt"></i>Publications</a>
 			</div>
 			<div class="activity">
 				<p>RECENT ACTIVITY</p>
@@ -45,6 +46,8 @@
 					{% block product_tree %}
 					{% endblock %}
 					{% block calendar_tree %}
+					{% endblock %}
+					{% block publications_tree %}
 					{% endblock %}
 				</div>
 				<div class="user">
@@ -66,11 +69,14 @@
 				{% endblock %}
 				{% block conference %}
 				{% endblock %}
-				{% block content %}{% endblock content %}
+				{% block publications_table %}
+				{% endblock %}
+				{% block content %}
+				{% endblock content %}
 				<script src="{% static 'happenings/js/calendar.js' %}"></script>
 				{% block extra_js %}{% endblock extra_js %}
 			</div>
-			<div class="version"> Symbiotic Devices admin v1.0.1</div>
+			<div class="version"> Symbiotic Devices admin v1.1.2</div>
 	</div>
 	<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 	<script src="{% static 'js/js.js' %}"></script>

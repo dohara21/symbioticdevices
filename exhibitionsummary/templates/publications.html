@@ -1,0 +1,44 @@
+{% extends 'exhibitionsummary/base.html' %}
+{% load static %}
+{% block publications_table %}
+<div class="pageheader">
+  Reference List
+  <div style ="font-size: 20px; text-transform: none; padding-top: 5px;"></div>
+</div>
+<section>
+<div class="table">
+<div class="tablehead">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+      <tr>
+        <th width='500px'>Article title</th>
+        <th>Applications</th>
+        <th>Products</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<div class="tablebody">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+      {% for publications in publications %}
+      <tr>
+        <td width='500px'><a href="{{publications.link}}" target="_blank">{{ publications.publication }}</a></td>
+        <td>{% for applications in publications.applications.all %}
+              {{ applications.name }}
+            {% endfor %}</td>
+        <td>{% for products in publications.products.all %}
+              {{ products.name }},
+            {% endfor %}</td>
+        <td>{{ publications.date}}</td>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</section>
+</div>
+{% endblock %}
+{% block publications_tree %}
+<a href="{% url 'exhibitionsummary:index' %}">Dashboard</a> > Publications
+{% endblock %}

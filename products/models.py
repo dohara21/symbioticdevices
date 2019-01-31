@@ -17,6 +17,7 @@ class Company(models.Model):
 
 		return reverse('company-detail', args=[str(self.id)])
 
+
 class Category(models.Model):
 
 	name = models.CharField(max_length=100)
@@ -85,7 +86,15 @@ class Product(models.Model):
 
 class Publication(models.Model):
 
-	publication = models.CharField(max_length=300)
+	publication = models.CharField('Article title', max_length=300)
+
+	authors = models.CharField('Authors', max_length=300, help_text='e.g. Smith, J.M., Adams, B.', blank=True)
+
+	journal = models.CharField('Journal', max_length=300, blank=True)
+
+	date = models.CharField('Year', max_length=4, blank=True)
+
+	volume = models.CharField('Volume', max_length=200, help_text='Ideally in format volume(issue):pages, e.g. 25(6):600-665', blank=True)
 
 	link = models.URLField(max_length=300, blank=True)
 
@@ -98,11 +107,8 @@ class Publication(models.Model):
 		verbose_name_plural = 'Publications'
 
 	def __str__(self):
-		return self.name
+		return self.publication
 
 	def get_absolute_url(self):
 
 		return reverse('publication-detail', args=[str(self.id)])
-
-	def display_solution(self):
-		return ', '.join(publication.name for publication in self.solution.all()[:3])

@@ -115,32 +115,29 @@ nav p {
 	grid-row: 1;
 	grid-column: auto;
 	background-color: #f9f9f9;
-	padding-top: 35px;
-	padding-left: 20px;
 	box-shadow: 0px 2px 6px 0px rgba(140,140,140,1);
 	z-index: 1;
 	display: grid;
-	grid-template-columns: 50px 1fr;
+	grid-template-columns: 500px 1fr 300px;
 	grid-template-rows: auto;
 	color: gray;
 	box-shadow: inset 0px 0px 2px 0px rgba(140,140,140,1);
 	border-bottom: solid #dedede 1px;
-
 }
+
+.strip a {
+	color: #666;
+}
+
 .tree {
 	display: block;
-	float: left;
-}
-
-.tree {
+	grid-column: 1;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 15px;
 	color: #666666;
 	font-family: 'Ubuntu';
-	margin-left: -40px;
-	margin-top: -3px;
-
+	padding-left: 20px;
 }
 
 .tree a {
@@ -148,19 +145,18 @@ nav p {
 }
 
 .user {
-	grid-column: 2;
+	font-family: 'Ubuntu', sans-serif;
+	grid-column: 3;
+	padding-right: 20px;
 	text-align: right;
 	float: right;
-	font-size: 12px;
+	font-size: 14px;
 	display: block;
-	padding-right: 20px;
 	color: #666666;
-	margin-top: -40px;
 }
 
 .user a {
 	text-decoration: none;
-	font-family: 'IBM Plex Sans';
 	text-transform: uppercase;
 	font-weight: normal;
 	text-align: right;
@@ -186,7 +182,10 @@ nav p {
 	padding-top: 0px;
 	height: 100%;
 	overflow-y: scroll;
-	background: #f2f2f2;
+	background-image: url("Logo.png");
+	 background-repeat: no-repeat;
+	 background-position: 90% 90%;
+	 background-size: 150px;
 }
 
 .drop2 {
@@ -265,32 +264,34 @@ table{
 }
 
 .table {
-  	margin-top: 20px;
-		padding: 20px;
-		width: 97%;
+  	margin-left: 15%;
+		width: 70%;
 }
 
 .tablehead{
-	background: #414141;
+	background-color: #727272;
+	border-radius: 10px 10px 0px 0px;
 	border-bottom: solid #878585 1px 1px 0px 1px;
 }
 
 .tablebody{
-  height:680px;
+  height:70vh;
   overflow-x:auto;
   margin-top: 0px;
   border: 1px solid rgba(128,130,133,0.3);
-	background-color: #ffffff;
+	box-shadow:  0px 0px 10px 3px rgba(214,214,214,0.2);
+	background-color: rgba(255, 255, 255, 0.4);
+	overflow-y: scroll;
 }
 
 th{
   padding: 20px 15px;
   text-align: left;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: bold;
+  font-size: 15px;
   color: white;
   text-transform: uppercase;
-	font-family: Ruda;
+	font-family: Ubuntu;
 }
 
 .table a {
@@ -310,23 +311,36 @@ td{
 /* Index */
 
 .index {
-	padding-top: 10px;
-	height: 95%;
+	height: 80vh;
 	display: grid;
-	grid-template-rows: 15px 400px 350px;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 30px;
+	grid-template-rows: 30px 400px 350px;
+	grid-template-columns: 510px repeat(2, 500px) ;
+	justify-content: center;
+	grid-column-gap: 50px;
+	align-content: space-around;
 }
 
 .index a {
 	color: #2a2a2a;
 }
 
-.indexheader {
+.api-auth {
 	grid-row: 1;
 	grid-column: 3;
 	text-align: right;
 	opacity: 0.5;
+	align-self: end;
+
+}
+
+.indexheader {
+	grid-row: 1;
+	grid-column: 1;
+	font-size: 37px;
+	text-transform: uppercase;
+	color: #727272;
+	padding-left: 5px;
+	align-self: start;
 }
 .geochart {
 	grid-column: 3;
@@ -350,8 +364,9 @@ td{
 	color: #2a2a2a;
 	background-color: rgba(255, 255, 255, 0.4);
 	box-shadow:  0px 0px 10px 3px rgba(214,214,214,0.1);
-	overflow: hidden;
 	border-radius: 10px 10px 0px 0px;
+	overflow: scroll;
+
 }
 
 .chart3container th{
@@ -389,6 +404,7 @@ td{
 	grid-row: 3;
 	justify-self: center;
 	align-self: center;
+
 }
 
 #chart-4-container {
@@ -427,7 +443,15 @@ td{
 	color: #2a2a2a;
 	height: 250px;
 	border-radius: 10px 10px 0px 0px;
+}
 
+.upcoming h1 {
+	font-size: 30px;
+	padding-bottom: 20px;
+	font-weight: normal;
+	text-align: center;
+	color: #727272;
+	border-bottom: 1px solid #727272;
 }
 
 
@@ -443,9 +467,10 @@ td{
 	letter-spacing: 1px;
 	overflow: hidden;
 	text-align: left;
-	color: #f3f3f3;
-	background-color: #d8b13c;
+	color: white;
+	background-color: #727272;
 	border-radius: 10px 10px 0px 0px;
+	box-shadow: 0p
 }
 
 .subheader {
@@ -464,7 +489,7 @@ td{
 	align-self: center;
 }
 
-.upcoming_countdown {
+.upcoming_countdown h1 {
 	text-align: center;
 	padding-top: 10px;
 	animation: pulsate1 2s ease-out;
@@ -493,32 +518,36 @@ td{
 .conference_detail {
 	display: grid;
 	grid-template-rows: 200px 600px;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 400px);
+	padding-top: 50px;
 	grid-gap: 20px;
+	grid-column-gap: 50px;
+	justify-content: center;
+	align-content: start;
 }
 
 .conference_detail a{
 	text-decoration: none;
 	font-size: 35px;
-	font-weight: bold;
-	color: #d7e153;
+	color: #727272;
+	text-transform: uppercase;
+
 }
 
+.conference_detail a:hover {
+	color: lightgray;
+	transition-duration: 0.5s;
+}
 .main_detail {
 	grid-row: 1;
 	grid-column: 1 / span 3;
 	padding-top: 20px;
 	padding-left: 20px;
 	font-family: 'Ubuntu', sans-serif;
-	font-weight: bold;
 	font-size: 16px;
 	border-radius: 5px 5px 0px 0px;
 	overflow: hidden;
-	background-image: linear-gradient(180deg, #2a2a2a 0%, #393838 100%);
-	color: #e9e9e9;
-	box-shadow: inset 0px 0px 2px 0px rgba(140,140,140,1);
-	border-top: solid #818181 2px;
-	border-bottom: solid black 2px;
+	color: #727272;
 }
 
 .conference_countdown {
@@ -528,6 +557,7 @@ td{
 	justify-self: center;
 	align-self: center;
 	color: white;
+	font-size: 40px;
 	animation: pulsate 2s ease-out;
 	-webkit-animation: pulsate 2s ease-out;
 	-webkit-animation-iteration-count: infinite;
@@ -537,28 +567,39 @@ td{
 @-webkit-keyframes pulsate {
     0% {
         color: #d7e153;
-				text-shadow: #79A447 1px 0 10px;
     }
     50% {
 				color: #79A447;
     }
     100% {
 			color: #d7e153;
-				text-shadow: #79A447 1px 0 10px;
-
     }
 }
 
+.conference_booth, .conference_equipment, .conference_details {
+	display: grid;
+	grid-template-rows: 60px 1fr;
+	grid-template-columns: auto;
+}
+
+
+
+.conference_booth-body, .conference_details-body, .conference_equipment-body {
+	grid-row: 2;
+	padding: 20px;
+	color: #404040;
+}
 
 .conference_booth {
 	grid-row: 2;
 	grid-column: 1;
 	background: #f2f2f2;
-	padding: 20px;
 	padding-top: 0px;
 	font-size: 14px;
 	text-align: left;
-	border: solid 1px #9c9c9c;
+	box-shadow:  0px 0px 10px 3px rgba(214,214,214,0.1);
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 10px 10px 0px 0px;
 }
 
 .conference_detail h5 {
@@ -571,7 +612,22 @@ td{
 	text-align: center;
 	padding-bottom: 20px;
 	color: #474747;
-	border-bottom: 1px solid #414141;
+	background-color:
+}
+.header2 {
+	background-color: gray;
+	grid-row: 1;
+	border-radius: 10px 10px 0px 0px;
+	font-size: 15px;
+	font-weight: bold;
+	padding-top: 20px;
+	padding-left: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	overflow: hidden;
+	text-align: left;
+	color: white;
+	background-color: #727272;
 }
 
 
@@ -579,24 +635,33 @@ td{
 	grid-row: 2;
 	grid-column: 2;
 	background: #f2f2f2;
-	padding: 20px;
-	padding-top: 0px;
 	font-size: 14px;
-	border: solid 1px #9c9c9c;
+	box-shadow:  0px 0px 10px 3px rgba(214,214,214,0.1);
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 10px 10px 0px 0px;
 }
 
 .conference_details {
 	grid-row: 2;
 	grid-column: 3;
 	background: #f2f2f2;
-	padding: 20px;
-	padding-top: 0px;
 	font-size: 14px;
-	border: solid 1px #9c9c9c;
-
+	box-shadow:  0px 0px 10px 3px rgba(214,214,214,0.1);
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 10px 10px 0px 0px;
 }
 
 
+
+.pageheader {
+	  	margin-left: 15%;
+			margin-top: 3vh;
+			margin-bottom: -6vh;
+			font-size: 37px;
+			text-transform: uppercase;
+			color: #727272;
+
+}
 
 
 @media all and (min-width:0px) and (max-width: 900px) {

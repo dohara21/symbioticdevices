@@ -2,7 +2,7 @@ from django.shortcuts import render, render_to_response
 from django.utils import timezone
 from .models import Summary
 from happenings.models import Event
-from products.models import Product
+from products.models import Product, Publication
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -34,3 +34,7 @@ def calendar(request):
 def conferenceindex(request):
     conference = Summary.objects.order_by('start')
     return render(request, 'index.html', {'conferenceindex': conferenceindex})
+
+def publications(request):
+    publications = Publication.objects.order_by('date')
+    return render(request, 'publications.html', {'publications': publications})

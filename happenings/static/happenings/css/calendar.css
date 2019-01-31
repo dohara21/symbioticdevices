@@ -46,13 +46,15 @@ table.month {
 table.month > tr {
     background: #fff;
     height: 0px;
+
 }
 table.month tr {
     background: #fff;
+
 }
 table.month th {
     text-align: center;
-    font-size: 15px;
+    font-size: 12px;
 }
 th.month {
     padding: 5px;
@@ -68,7 +70,7 @@ th.month {
   font-size: 15px;
 }
 td.noday {
-    background: #636363 !important;
+    background: #727272 !important;
 }
 .td-inner {
     overflow: auto;

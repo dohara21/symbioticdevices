@@ -11,4 +11,5 @@ urlpatterns = [
     path('conference', views.conference, name='conference'),
     path('conference/<int:pk>/', views.conference_detail, name='conference_detail'),
     path('products', views.products, name='products'),
+    path('publications', views.publications, name='publications'),
 ]

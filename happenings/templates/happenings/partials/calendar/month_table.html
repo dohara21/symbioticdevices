@@ -1,12 +1,14 @@
+
 {% load i18n weekday %}
 <table border="0" cellpadding="0" cellspacing="0" class="month">
   {% block month_name_row %}
-  <tr style="height: 50px;">
-    <th colspan="1" class="month-arrow-left"><a href="{{ prev_qs }}" style="font-size: 50px; color: black">&larr;</a></th>
-    <th colspan="5" class="month" style="color: #d7e153; font-size: 28px; background-color: #414141"">
+  <tr style="height: 50px; ">
+
+    <th  colspan="1" class="month-arrow-left"><a href="{{ prev_qs }}" style="font-size: 50px; color: #727272">&larr;</a></th>
+    <th colspan="5" class="month" style="color: white; font-size: 20px; background-color: gray"">
       {% if withyear %}{{ month_start_date|date:"F Y" }}{% else %}{{ month_start_date|date:"F" }}{% endif %}
     </th>
-    <th colspan="1" class="month-arrow-right"><a href="{{ next_qs }}" style="font-size: 50px; color: black;">&rarr;</a></th>
+    <th colspan="1" class="month-arrow-right"><a href="{{ next_qs }}" style="font-size: 50px; color: #727272;">&rarr;</a></th>
   </tr>
   {% endblock month_name_row %}
   {% block week_header_row %}
